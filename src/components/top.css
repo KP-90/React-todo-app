@@ -1,0 +1,8 @@
+.top {
+    grid-column: 1 / 3;
+    background-color: maroon;
+}
+
+#add-task {
+    font: 1.5em sans-serif;
+}
