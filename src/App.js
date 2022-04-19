@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import Top from './components/Top';
+import Panel from './components/Panel';
+import Main from './components/Main';
+import Modal from './components/Modal';
+
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [tasks, setTasks] = useState([{
+    id:0, 
+    task:"Hello user, welcome to the app",
+    priority: '1-HIGH'
+    }
+  ])
+  const [modalDisplay, setModalDisplay] = useState("none")
+
+  useEffect(() => {
+    const handleClick = (e) => {
+      const modal = document.querySelector("#newTaskModal")
+      setModalDisplay('flex') 
+    }
+    let btn = document.querySelector("#add-task")
+    btn.addEventListener("click", handleClick)
+    return() => {btn.removeEventListener("click", handleClick)}
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Modal tasks={tasks} setTasks={setTasks} modalDisplay={modalDisplay} setModalDisplay={setModalDisplay}/>
+
+      <Top />
+      <Panel />
+      <Main tasks={tasks} setTasks={setTasks}/>
     </div>
   );
 }
