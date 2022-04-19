@@ -7,6 +7,8 @@ import Modal from './components/Modal';
 import { useEffect, useState } from 'react';
 
 function App() {
+  console.log("lets go")
+  
   const [tasks, setTasks] = useState([{
     id:0, 
     task:"Hello user, welcome to the app",
@@ -24,6 +26,15 @@ function App() {
     btn.addEventListener("click", handleClick)
     return() => {btn.removeEventListener("click", handleClick)}
   }, [])
+
+  useEffect(() => {
+    window.onclick = (e) => {
+      if (e.target !== document.querySelector('.modal-content') && e.target === document.querySelector("#newTaskModal")) {
+        setModalDisplay('none')
+    }  
+    }
+  })
+  
 
   return (
     <div className="App">

@@ -33,7 +33,7 @@ const Task = (props) => {
                 <input type="checkbox" onClick={handleCheck}/>
                 <div className="editDiv" hidden>
                 
-                    <textarea id="editInput" value={taskInput} onChange={(e) => setTaskInput(e.target.value)} cols='45'></textarea>
+                    <textarea id="editInput" value={taskInput} onChange={(e) => setTaskInput(e.target.value)} cols='45' maxLength='180'></textarea>
                     <button className='done'>done</button>
                 </div>
                 <p className={active} id={props.item.id}>{props.item.task}</p>
