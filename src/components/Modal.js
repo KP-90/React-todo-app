@@ -22,7 +22,7 @@ const Modal = (props) => {
     })
     
     return(
-        <div className="modal" id='newTaskModal' style={style}>
+        <div role="modal" className="modal" id='newTaskModal' style={style}>
             <div className="modal-content">
                 <form>
                     <label>

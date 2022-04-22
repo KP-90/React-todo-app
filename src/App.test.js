@@ -18,10 +18,13 @@ describe("Users can add task", () => {
   beforeEach(() => {
     const {container} = render(<App />)
   })
-  it("Button show modal", () => {
+  it("Button shows modal", () => {
     const btn = screen.getByRole("button", {name: "+Add Task"})
     userEvent.click(btn)
     expect(screen.getByRole("modal").style.display).toMatch(/flex/i)
-
+  })
+  it("There are tasks", () => {
+    const tasks = screen.queryAllByRole("task")
+    expect(tasks.length).toBeGreaterThan(0)
   })
 })

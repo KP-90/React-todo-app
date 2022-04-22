@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders Renders App 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <div
+      class="modal"
+      id="newTaskModal"
+      role="modal"
+      style="display: none;"
+    >
+      <div
+        class="modal-content"
+      >
+        <form>
+          <label>
+            Task:
+            <input
+              type="text"
+            />
+          </label>
+          <label>
+            Priority:
+            <select>
+              <option
+                value="1-High"
+              >
+                1-High
+              </option>
+              <option
+                value="2-Normal"
+              >
+                2-Normal
+              </option>
+              <option
+                value="3-Low"
+              >
+                3-Low
+              </option>
+            </select>
+          </label>
+        </form>
+        <button
+          id="close"
+        >
+          Submit & Close
+        </button>
+      </div>
+    </div>
+    <div
+      class="top"
+    >
+      <h1>
+        To Do List
+      </h1>
+      <button
+        id="add-task"
+      >
+        +Add Task
+      </button>
+    </div>
+    <div
+      class="panel"
+    />
+    <div
+      class="main"
+    >
+      <span>
+        <h2>
+          Task
+        </h2>
+        <h2
+          id="sortPriority"
+        >
+          <span
+            class="sorting"
+            id="up"
+          >
+            ↑
+          </span>
+          Priority
+          <span
+            class="sorting"
+            id="down"
+          >
+            ↓
+          </span>
+        </h2>
+      </span>
+      <div
+        id="0"
+        role="task"
+      >
+        <div
+          class="modal"
+          id="taskinfo"
+          style="display: none;"
+        >
+          <div
+            class="modal-content"
+            id="taskInfoContent"
+          >
+            <h1>
+              Hello user, welcome to the app
+            </h1>
+          </div>
+        </div>
+        <div
+          class="task"
+        >
+          <input
+            type="checkbox"
+          />
+          <div
+            class="editDiv"
+            hidden=""
+          >
+            <textarea
+              cols="45"
+              id="editInput"
+              maxlength="180"
+            >
+              Hello user, welcome to the app
+            </textarea>
+            <button
+              class="done"
+            >
+              done
+            </button>
+          </div>
+          <p
+            class=""
+            id="0"
+          >
+            Hello user, welcome to the app
+          </p>
+          <p>
+            1-HIGH
+          </p>
+          <button
+            class="edit"
+          >
+            Edit
+          </button>
+          <button
+            class="delete"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

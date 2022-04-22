@@ -7,7 +7,6 @@ import Modal from './components/Modal';
 import { useEffect, useState } from 'react';
 
 function App() {
-  console.log("lets go")
   
   const [tasks, setTasks] = useState([{
     id:0, 
@@ -16,6 +15,12 @@ function App() {
     }
   ])
   const [modalDisplay, setModalDisplay] = useState("none")
+  
+  //Playing with local storage
+  localStorage.setItem("tasks", JSON.stringify(tasks))
+  let saved = localStorage.getItem("tasks")
+  //console.log(JSON.parse(saved))
+  //--Local storage end
 
   useEffect(() => {
     const handleClick = (e) => {
