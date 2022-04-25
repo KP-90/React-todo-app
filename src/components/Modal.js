@@ -1,8 +1,9 @@
 // handles creating a new task to add to State
 import { useEffect } from 'react'
 import './modal.css'
-let index = 1
 const Modal = (props) => {
+    // index is used for the key value. This gets the highest id number found so that its not possible for collisions.
+    let index = Math.max.apply(Math, props.tasks.map((i) => {return i.id}))
     let style = {'display': props.modalDisplay}
     useEffect(() => {
         const mod = document.querySelector("#newTaskModal")
@@ -11,14 +12,17 @@ const Modal = (props) => {
             const n = document.querySelector('input')
             const prio = document.querySelector("select")
             if (n.value !== '') {
-                props.setTasks(props.tasks.concat({id:index, task: n.value, priority: prio.value}))
-                console.log(prio.value)
                 index += 1
+                props.setTasks(props.tasks.concat({id:index, task: n.value, priority: prio.value}))
             }
             props.setModalDisplay('none')            
         }
         btn.addEventListener("click", handleClose)
-        return() => {btn.removeEventListener("click", handleClose)}
+        return() => {
+            btn.removeEventListener("click", handleClose)
+            localStorage.setItem("tasks", JSON.stringify(props.tasks))
+
+        }
     })
     
     return(

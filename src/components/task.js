@@ -27,7 +27,7 @@ const Task = (props) => {
     }
 
     return(
-        <div role="task" key={props.item.id} id={props.item.id}>
+        <div role="task-container" key={props.item.id} id={props.item.id}>
             <Taskinfo item={props.item} hide={hide}/>
             <div className='task' >
                 <input type="checkbox" onClick={handleCheck}/>

@@ -7,19 +7,33 @@ import Modal from './components/Modal';
 import { useEffect, useState } from 'react';
 
 function App() {
+  const [tasks, setTasks] = useState([])
+  const [loaded, setLoaded] = useState(false)
   
-  const [tasks, setTasks] = useState([{
-    id:0, 
-    task:"Hello user, welcome to the app",
-    priority: '1-HIGH'
-    }
-  ])
   const [modalDisplay, setModalDisplay] = useState("none")
   
   //Playing with local storage
-  localStorage.setItem("tasks", JSON.stringify(tasks))
-  let saved = localStorage.getItem("tasks")
-  //console.log(JSON.parse(saved))
+  
+    if(loaded === false){
+      if(localStorage.getItem("tasks")) {
+        let saved = localStorage.getItem("tasks")
+        console.log("local storage:", JSON.parse(saved))
+        setTasks(JSON.parse(saved))
+        setLoaded(true)
+      }
+      else {
+        console.log("Setting up local storage")
+        let defaultTask = {id:0, task: "Hello, welcome to the App!", priority: "1-High"}
+        setTasks([].concat(defaultTask))
+        setLoaded(true)
+      }
+    }
+  
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+  }, [tasks])
+  
   //--Local storage end
 
   useEffect(() => {
@@ -39,7 +53,6 @@ function App() {
     }  
     }
   })
-  
 
   return (
     <div className="App">

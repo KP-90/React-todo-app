@@ -93,7 +93,7 @@ exports[`App renders Renders App 1`] = `
       </span>
       <div
         id="0"
-        role="task"
+        role="task-container"
       >
         <div
           class="modal"
@@ -105,7 +105,7 @@ exports[`App renders Renders App 1`] = `
             id="taskInfoContent"
           >
             <h1>
-              Hello user, welcome to the app
+              Hello, welcome to the App!
             </h1>
           </div>
         </div>
@@ -124,7 +124,7 @@ exports[`App renders Renders App 1`] = `
               id="editInput"
               maxlength="180"
             >
-              Hello user, welcome to the app
+              Hello, welcome to the App!
             </textarea>
             <button
               class="done"
@@ -136,10 +136,10 @@ exports[`App renders Renders App 1`] = `
             class=""
             id="0"
           >
-            Hello user, welcome to the app
+            Hello, welcome to the App!
           </p>
           <p>
-            1-HIGH
+            1-High
           </p>
           <button
             class="edit"
