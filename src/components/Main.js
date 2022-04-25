@@ -19,7 +19,7 @@ const Main = (props) => {
                 let newTask = e.target.parentNode.querySelector("#editInput").value
                 //Find object that is being edited
                 let copy = props.tasks.find(i => i.id === parseInt(p.id))
-                
+
                 //Update state, maps over each item. If it matches the edited item, set it to new value
                 props.setTasks(prevState => prevState.map(
                     el => el.id === copy.id? {...el, task: newTask}:el
@@ -34,13 +34,14 @@ const Main = (props) => {
         }
 
         const handleDelete = (e) => {
-            let taskToDelete = e.target.parentNode.querySelector("p")
-            let copy = props.tasks.find(i => i.task === taskToDelete.innerText)
-            props.setTasks(prevState => prevState.filter(
-                el => el.id !== copy.id
-            ))
-            
-        }
+            if(window.confirm("Are you sure?")) {
+                let taskToDelete = e.target.parentNode.querySelector("p")
+                let copy = props.tasks.find(i => i.task === taskToDelete.innerText)
+                props.setTasks(prevState => prevState.filter(
+                    el => el.id !== copy.id
+                ))
+            }
+        }   
 
         allEdits.forEach(btn => btn.addEventListener("click", handleEdit))        
         allDels.forEach(btn => btn.addEventListener("click", handleDelete))
