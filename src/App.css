@@ -3,13 +3,15 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 150px 1fr;
-    grid-template-rows: 75px 1fr;
+    grid-template-rows: 85px 1fr;
 }
 
-
-
 .panel {
-    background-color: darkgoldenrod;
+    background-color: #55bcc9;
+}
+
+.main {
+    background-color: #cafefe;
 }
 
 span {
@@ -29,4 +31,9 @@ span > * {
 }
 #up:hover, #down:hover {
     cursor: pointer;
+}
+
+textarea {
+    max-width: 450px;
+    max-height: 45px;
 }
