@@ -17,9 +17,9 @@ exports[`App renders Renders App 1`] = `
         <form>
           <label>
             Task:
-            <input
+            <textarea
+              cols="20"
               role="inputText"
-              type="text"
             />
           </label>
           <label>

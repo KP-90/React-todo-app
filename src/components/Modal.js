@@ -10,7 +10,7 @@ const Modal = (props) => {
         const mod = document.querySelector("#newTaskModal")
         const btn = document.querySelector("#close")
         const handleClose = () => {
-            const n = document.querySelector('input')
+            const n = document.querySelector('textarea')
             const prio = document.querySelector("select")
             if (n.value !== '') {
                 index += 1
@@ -32,7 +32,7 @@ const Modal = (props) => {
                 <form>
                     <label>
                         Task: 
-                        <input role="inputText" type="text"></input>
+                        <textarea role="inputText" cols='20'></textarea>
                     </label>
                     <label>
                         Priority: 
