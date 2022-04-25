@@ -18,6 +18,7 @@ exports[`App renders Renders App 1`] = `
           <label>
             Task:
             <input
+              role="inputText"
               type="text"
             />
           </label>
@@ -44,6 +45,7 @@ exports[`App renders Renders App 1`] = `
         </form>
         <button
           id="close"
+          role="close"
         >
           Submit & Close
         </button>

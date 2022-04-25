@@ -18,13 +18,26 @@ describe("Users can add task", () => {
   beforeEach(() => {
     const {container} = render(<App />)
   })
-  it("Button shows modal", () => {
+  it("Add task button shows modal", () => {
     const btn = screen.getByRole("button", {name: "+Add Task"})
     userEvent.click(btn)
     expect(screen.getByRole("modal").style.display).toMatch(/flex/i)
   })
-  it("There are tasks", () => {
+  it("Renders tasks", () => {
     const tasks = screen.queryAllByRole("task")
     expect(tasks.length).toBeGreaterThan(0)
+  })
+  it("Tasks can be added and rendered", async() => {
+    let userInput
+    const tasksBefore = screen.queryAllByRole("task")
+    const btn = screen.getByRole("button", {name: "+Add Task"})
+    await  userEvent.click(btn)
+    console.log("MODAL IS VISIBLE")
+    userInput = screen.getByRole("inputText")
+    await userEvent.type(userInput, `test`)
+    const submitBtn = screen.getByRole("close")
+    await userEvent.click(submitBtn)
+    const tasksAfter = screen.queryAllByRole("task")
+    expect(tasksBefore.length).toBeLessThan(tasksAfter.length)
   })
 })

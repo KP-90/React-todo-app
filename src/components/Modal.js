@@ -27,7 +27,7 @@ const Modal = (props) => {
                 <form>
                     <label>
                         Task: 
-                        <input type="text"></input>
+                        <input role="inputText" type="text"></input>
                     </label>
                     <label>
                         Priority: 
@@ -38,7 +38,7 @@ const Modal = (props) => {
                         </select>
                     </label>
                 </form>
-                <button id='close'>Submit & Close</button>
+                <button role="close" id='close'>Submit & Close</button>
             </div>
         </div>
     )
