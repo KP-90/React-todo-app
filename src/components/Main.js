@@ -19,6 +19,7 @@ const Main = (props) => {
                 let newTask = e.target.parentNode.querySelector("#editInput").value
                 //Find object that is being edited
                 let copy = props.tasks.find(i => i.id === parseInt(p.id))
+                
                 //Update state, maps over each item. If it matches the edited item, set it to new value
                 props.setTasks(prevState => prevState.map(
                     el => el.id === copy.id? {...el, task: newTask}:el
@@ -29,7 +30,7 @@ const Main = (props) => {
             }
             // Add submit edit function to the button
             let done = e.target.parentNode.querySelector(".done")
-            done.addEventListener("click", submitEdit)
+            done.addEventListener("click", submitEdit)  
         }
 
         const handleDelete = (e) => {
@@ -49,6 +50,10 @@ const Main = (props) => {
             allDels.forEach(btn => btn.removeEventListener("click", handleDelete))
         }
     })
+
+    useEffect(() => {
+        localStorage.setItem("tasks", JSON.stringify(props.tasks))
+    }, [props.tasks])
 
     // Sorting functionality
     useEffect(() => {

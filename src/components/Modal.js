@@ -3,7 +3,8 @@ import { useEffect } from 'react'
 import './modal.css'
 const Modal = (props) => {
     // index is used for the key value. This gets the highest id number found so that its not possible for collisions.
-    let index = Math.max.apply(Math, props.tasks.map((i) => {return i.id}))
+    //If the tasks array is empty, set index === 0
+    let index = props.tasks.length > 0? Math.max.apply(Math, props.tasks.map((i) => {return i.id})) : 0
     let style = {'display': props.modalDisplay}
     useEffect(() => {
         const mod = document.querySelector("#newTaskModal")
