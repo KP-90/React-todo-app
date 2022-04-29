@@ -16,7 +16,8 @@ const Main = (props) => {
             editDiv.removeAttribute("hidden")
 
             const submitEdit = () => {
-                let newTask = e.target.parentNode.querySelector("#editInput").value
+                let newTask = e.target.parentNode.querySelector("#editInput").value || "-blank-"
+
                 //Find object that is being edited
                 let copy = props.tasks.find(i => i.id === parseInt(p.id))
 
@@ -36,7 +37,9 @@ const Main = (props) => {
         const handleDelete = (e) => {
             if(window.confirm("Are you sure?")) {
                 let taskToDelete = e.target.parentNode.querySelector("p")
-                let copy = props.tasks.find(i => i.task === taskToDelete.innerText)
+                console.log(taskToDelete)
+                let copy = props.tasks.find(i => i.id === parseInt(taskToDelete.id))
+                console.log(copy)
                 props.setTasks(prevState => prevState.filter(
                     el => el.id !== copy.id
                 ))
