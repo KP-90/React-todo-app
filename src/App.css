@@ -6,17 +6,16 @@
     grid-template-rows: 85px 1fr;
 }
 
-.panel {
-    background-color: #55bcc9;
-}
-
 .main {
     background-color: #cafefe;
+    width: 100vw;
 }
 
 span {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    text-align: end;
+
 }
 span > * {
     width: 200px;

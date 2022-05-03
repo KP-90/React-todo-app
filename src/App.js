@@ -59,7 +59,7 @@ function App() {
       <Modal tasks={tasks} setTasks={setTasks} modalDisplay={modalDisplay} setModalDisplay={setModalDisplay}/>
 
       <Top />
-      <Panel />
+      
       <Main tasks={tasks} setTasks={setTasks}/>
     </div>
   );
