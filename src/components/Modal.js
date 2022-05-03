@@ -32,7 +32,7 @@ const Modal = (props) => {
                 <form>
                     <label>
                         Task: 
-                        <textarea role="inputText" cols='20'></textarea>
+                        <textarea role="inputText" cols='20' rows='10'></textarea>
                     </label>
                     <label>
                         Priority: 
