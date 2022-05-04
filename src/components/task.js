@@ -19,7 +19,7 @@ const Task = (props) => {
     // Updates the individual task completion based on checkbox
     const handleCheck = (e) => {
         setCheck(!check)
-        let p = e.target.parentNode.querySelector("p")
+        let p = e.target.parentNode.querySelector(".taskText")
         let copy = props.tasks.find(i => i.id === parseInt(p.id))
         if(active === '') {
             props.setTasks(prevState => prevState.map(
@@ -40,12 +40,11 @@ const Task = (props) => {
             <div className='task' >
                 {props.item.complete? <input type="checkbox" onChange={handleCheck} checked={check}/> :
                     <input type="checkbox" onChange={handleCheck} checked={check}/>}
-                
+                <p>{props.item.time}</p>
                 <div className="editDiv editText" hidden>
                 
                     <textarea id="editInput" value={taskInput} onChange={(e) => setTaskInput(e.target.value)} cols='45' maxLength='180'></textarea>
                 </div>
-                <p>{props.item.time}</p>
                 <p className={`taskText ${active}`} id={props.item.id}>{props.item.task}</p>
                 <div className='editDiv editPrio' hidden>
                     <select id='editPrio' value={prioInput} onChange={(e) => setPrio(e.target.value)}>

@@ -13,7 +13,7 @@ const Main = (props) => {
             e.target.removeEventListener("click", handleEdit)
             // 'Un-hide' the edit divs
             let editDiv = e.target.parentNode.querySelectorAll(".editDiv")
-            let p = e.target.parentNode.querySelector("p")
+            let p = e.target.parentNode.querySelector(".taskText")
             let sel = e.target.parentNode.querySelector(".prio")
             p.setAttribute("hidden", true)
             sel.setAttribute("hidden", true)

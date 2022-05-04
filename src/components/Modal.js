@@ -1,5 +1,6 @@
 // handles creating a new task to add to State
 import { useEffect } from 'react'
+import TaskClass from '../class/TaskClass'
 import './modal.css'
 const Modal = (props) => {
     // index is used for the key value. This gets the highest id number found so that its not possible for collisions.
@@ -14,16 +15,9 @@ const Modal = (props) => {
             const prio = document.querySelector("select")
             if (n.value !== '') {
                 index += 1
-                let date = new Date()
-                let month = date.getMonth() + 1
-                let day = date.getDate()
-                console.log(typeof(day))
-                day = day < 10 ? `0${day}` : day 
-                props.setTasks(props.tasks.concat({id:index, 
-                    task: n.value, 
-                    priority: prio.value, 
-                    complete: false,
-                    time: `${month}/${day}`}))
+                let newTask = new TaskClass(n.value, prio.value, index)
+                console.log(newTask)
+                props.setTasks(props.tasks.concat(newTask))
             }
             props.setModalDisplay('none')            
         }
