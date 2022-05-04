@@ -14,7 +14,16 @@ const Modal = (props) => {
             const prio = document.querySelector("select")
             if (n.value !== '') {
                 index += 1
-                props.setTasks(props.tasks.concat({id:index, task: n.value, priority: prio.value, complete: false}))
+                let date = new Date()
+                let month = date.getMonth() + 1
+                let day = date.getDate()
+                console.log(typeof(day))
+                day = day < 10 ? `0${day}` : day 
+                props.setTasks(props.tasks.concat({id:index, 
+                    task: n.value, 
+                    priority: prio.value, 
+                    complete: false,
+                    time: `${month}/${day}`}))
             }
             props.setModalDisplay('none')            
         }

@@ -22,7 +22,7 @@ function App() {
       }
       else {
         console.log("Setting up local storage")
-        let defaultTask = {id:0, task: "Hello, welcome to the App!", priority: "1-High", complete: false}
+        let defaultTask = {id:0, task: "Hello, welcome to the App!", priority: "1-High", complete: false, time: "5/04"}
         setTasks([].concat(defaultTask))
         setLoaded(true)
       }

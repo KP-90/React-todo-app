@@ -45,7 +45,8 @@ const Task = (props) => {
                 
                     <textarea id="editInput" value={taskInput} onChange={(e) => setTaskInput(e.target.value)} cols='45' maxLength='180'></textarea>
                 </div>
-                <p className={active} id={props.item.id}>{props.item.task}</p>
+                <p>{props.item.time}</p>
+                <p className={`taskText ${active}`} id={props.item.id}>{props.item.task}</p>
                 <div className='editDiv editPrio' hidden>
                     <select id='editPrio' value={prioInput} onChange={(e) => setPrio(e.target.value)}>
                         <option value="1-High">1-High</option>

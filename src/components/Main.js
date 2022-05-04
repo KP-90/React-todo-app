@@ -47,7 +47,7 @@ const Main = (props) => {
 
         const handleDelete = (e) => {
             if(window.confirm("Are you sure?")) {
-                let taskToDelete = e.target.parentNode.querySelector("p")
+                let taskToDelete = e.target.parentNode.querySelector(".taskText")
                 let copy = props.tasks.find(i => i.id === parseInt(taskToDelete.id))
                 props.setTasks(prevState => prevState.filter(
                     el => el.id !== copy.id
