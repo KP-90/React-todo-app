@@ -86,7 +86,7 @@ const Main = (props) => {
                     <span className="sorting" id="down">&#8595;</span></h2>
             </span>
             {props.tasks.map((item) => {
-                return <Task key={item.id} item={item} />
+                return <Task tasks={props.tasks} key={item.id} item={item} setTasks={props.setTasks}/>
             })}
         </div>
     )

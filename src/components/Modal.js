@@ -14,7 +14,7 @@ const Modal = (props) => {
             const prio = document.querySelector("select")
             if (n.value !== '') {
                 index += 1
-                props.setTasks(props.tasks.concat({id:index, task: n.value, priority: prio.value}))
+                props.setTasks(props.tasks.concat({id:index, task: n.value, priority: prio.value, complete: false}))
             }
             props.setModalDisplay('none')            
         }

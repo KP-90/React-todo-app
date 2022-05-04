@@ -13,7 +13,6 @@ function App() {
   const [modalDisplay, setModalDisplay] = useState("none")
   
   //Playing with local storage
-  
     if(loaded === false){
       if(localStorage.getItem("tasks")) {
         let saved = localStorage.getItem("tasks")
@@ -23,7 +22,7 @@ function App() {
       }
       else {
         console.log("Setting up local storage")
-        let defaultTask = {id:0, task: "Hello, welcome to the App!", priority: "1-High"}
+        let defaultTask = {id:0, task: "Hello, welcome to the App!", priority: "1-High", complete: false}
         setTasks([].concat(defaultTask))
         setLoaded(true)
       }
@@ -45,7 +44,7 @@ function App() {
     btn.addEventListener("click", handleClick)
     return() => {btn.removeEventListener("click", handleClick)}
   }, [])
-
+  // Close the modal when clicking outside of it
   useEffect(() => {
     window.onclick = (e) => {
       if (e.target !== document.querySelector('.modal-content') && e.target === document.querySelector("#newTaskModal")) {
