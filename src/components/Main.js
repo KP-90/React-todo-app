@@ -9,6 +9,8 @@ const Main = (props) => {
         let allDels = document.querySelectorAll(".delete")
 
         const handleEdit = (e) => {
+            e.target.innerText = "Done"
+            e.target.removeEventListener("click", handleEdit)
             // 'Un-hide' the edit divs
             let editDiv = e.target.parentNode.querySelectorAll(".editDiv")
             let p = e.target.parentNode.querySelector("p")
@@ -18,7 +20,10 @@ const Main = (props) => {
             editDiv[0].removeAttribute("hidden")
             editDiv[1].removeAttribute("hidden")
 
-            const submitEdit = () => {
+            const submitEdit = (e) => {
+                e.target.innerText = "Edit"
+                e.target.removeEventListener("click", submitEdit)
+                e.target.addEventListener("click", handleEdit)
                 let newTask = e.target.parentNode.querySelector("#editInput").value || "-blank-"
                 let newPrio = e.target.parentNode.querySelector("#editPrio").value
 
@@ -36,16 +41,14 @@ const Main = (props) => {
                 editDiv[1].setAttribute("hidden", true)
             }
             // Add submit edit function to the button
-            let done = e.target.parentNode.querySelector(".done")
-            done.addEventListener("click", submitEdit)  
+
+            e.target.addEventListener("click", submitEdit)  
         }
 
         const handleDelete = (e) => {
             if(window.confirm("Are you sure?")) {
                 let taskToDelete = e.target.parentNode.querySelector("p")
-                console.log(taskToDelete)
                 let copy = props.tasks.find(i => i.id === parseInt(taskToDelete.id))
-                console.log(copy)
                 props.setTasks(prevState => prevState.filter(
                     el => el.id !== copy.id
                 ))

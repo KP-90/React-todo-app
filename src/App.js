@@ -16,7 +16,7 @@ function App() {
     if(loaded === false){
       if(localStorage.getItem("tasks")) {
         let saved = localStorage.getItem("tasks")
-        console.log("local storage:", JSON.parse(saved))
+        console.log("local storage found. ")
         setTasks(JSON.parse(saved))
         setLoaded(true)
       }
@@ -32,9 +32,8 @@ function App() {
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks))
   }, [tasks])
-  
-  //--Local storage end
 
+  // Opens the modal for submitting a new task
   useEffect(() => {
     const handleClick = (e) => {
       const modal = document.querySelector("#newTaskModal")
@@ -44,6 +43,7 @@ function App() {
     btn.addEventListener("click", handleClick)
     return() => {btn.removeEventListener("click", handleClick)}
   }, [])
+  
   // Close the modal when clicking outside of it
   useEffect(() => {
     window.onclick = (e) => {

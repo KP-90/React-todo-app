@@ -44,7 +44,6 @@ const Task = (props) => {
                 <div className="editDiv editText" hidden>
                 
                     <textarea id="editInput" value={taskInput} onChange={(e) => setTaskInput(e.target.value)} cols='45' maxLength='180'></textarea>
-                    <button className='done'>done</button>
                 </div>
                 <p className={active} id={props.item.id}>{props.item.task}</p>
                 <div className='editDiv editPrio' hidden>
