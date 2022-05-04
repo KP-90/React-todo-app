@@ -88,13 +88,13 @@ const Main = (props) => {
 
     return(
         <div className="main">
-            <span>
+            <header>
                 <h2>Task</h2>
                 <h2 id="sortPriority">
                     <span className="sorting" id="up">&#8593;</span>
                     Priority
                     <span className="sorting" id="down">&#8595;</span></h2>
-            </span>
+            </header>
             {props.tasks.map((item) => {
                 return <Task tasks={props.tasks} key={item.id} item={item} setTasks={props.setTasks}/>
             })}
