@@ -9,25 +9,31 @@ const Main = (props) => {
         let allDels = document.querySelectorAll(".delete")
 
         const handleEdit = (e) => {
-            // 'Un-hide' the edit div
-            let editDiv = e.target.parentNode.querySelector(".editDiv")
+            // 'Un-hide' the edit divs
+            let editDiv = e.target.parentNode.querySelectorAll(".editDiv")
             let p = e.target.parentNode.querySelector("p")
+            let sel = e.target.parentNode.querySelector(".prio")
             p.setAttribute("hidden", true)
-            editDiv.removeAttribute("hidden")
+            sel.setAttribute("hidden", true)
+            editDiv[0].removeAttribute("hidden")
+            editDiv[1].removeAttribute("hidden")
 
             const submitEdit = () => {
                 let newTask = e.target.parentNode.querySelector("#editInput").value || "-blank-"
+                let newPrio = e.target.parentNode.querySelector("#editPrio").value
 
                 //Find object that is being edited
                 let copy = props.tasks.find(i => i.id === parseInt(p.id))
 
                 //Update state, maps over each item. If it matches the edited item, set it to new value
                 props.setTasks(prevState => prevState.map(
-                    el => el.id === copy.id? {...el, task: newTask}:el
+                    el => el.id === copy.id? {...el, task: newTask, priority: newPrio}:el
                 ))
                 // Re-hide the edit div
                 p.removeAttribute('hidden')
-                editDiv.setAttribute("hidden", true)
+                sel.removeAttribute("hidden")
+                editDiv[0].setAttribute("hidden", true)
+                editDiv[1].setAttribute("hidden", true)
             }
             // Add submit edit function to the button
             let done = e.target.parentNode.querySelector(".done")
@@ -55,6 +61,7 @@ const Main = (props) => {
         }
     })
 
+    // Update local storage on task changes
     useEffect(() => {
         localStorage.setItem("tasks", JSON.stringify(props.tasks))
     }, [props.tasks])
