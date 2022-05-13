@@ -2,7 +2,7 @@
 
 Made using React*
 
-*Still in progress
+See it deployed on Firebase: https://to-do-app-fa0e8.web.app/ 
 
 
 
